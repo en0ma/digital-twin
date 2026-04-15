@@ -1,20 +1,20 @@
 {
-    "full_name": "Your Full Name",
-    "name": "Your Nickname",
-    "current_role": "Your Current Role",
-    "location": "Your Location",
-    "email": "your.email@example.com",
-    "linkedin": "linkedin.com/in/yourprofile",
+    "full_name": "Lawrence Enehizena",
+    "name": "Dlaw",
+    "current_role": "Software Developer",
+    "location": "Toronto, Canada",
+    "email": "lawstands@gmail.com",
+    "linkedin": "linkedin.com/in/lawrence-enehizena",
     "specialties": [
-      "Your specialty 1",
-      "Your specialty 2",
-      "Your specialty 3"
+      "Backend Development",
+      "Cloud Infrastructure",
+      "API Design"
     ],
-    "years_experience": 10,
+    "years_experience": 5,
     "education": [
       {
-        "degree": "Your Degree",
-        "institution": "Your University",
+        "degree": "Bachelor of Science in Electrical/Electronic Engineering",
+        "institution": "University of Port Harcourt, Nigeria",
         "year": "2020"
       }
     ]

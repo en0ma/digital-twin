@@ -87,13 +87,13 @@ Thumbs.db
 .aws/
 
 
-/backend/.env
+.env
 /terraform/.env
-/frontend/.env  
-/frontend/.env.production
-/frontend/.vercel/
-/frontend/build/
-/frontend/next-env.d.ts
-/frontend/out/
-/frontend/.next/
-/frontend/node_modules/
+.env  
+.env.production
+.vercel/
+build/
+next-env.d.ts
+out/
+.next/
+/node_modules/

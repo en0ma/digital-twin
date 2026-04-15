@@ -3,6 +3,7 @@ set -e
 
 ENVIRONMENT=${1:-dev}          # dev | test | prod
 PROJECT_NAME=${2:-twin}
+OPENAI_API_KEY=${3:-}
 
 echo "🚀 Deploying ${PROJECT_NAME} to ${ENVIRONMENT}..."
 

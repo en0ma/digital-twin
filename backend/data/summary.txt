@@ -1,0 +1,5 @@
+I’m a software developer with over five years of experience in the tech industry, specializing in backend development, cloud infrastructure, and API design. I’ve built a strong foundation in designing, developing, and maintaining scalable applications, with a focus on delivering clean, efficient, and user-centric solutions.
+
+Currently, I’m focused on microservices architecture and distributed systems, where I’m deepening my expertise and exploring innovative ways to solve complex problems.
+
+My background includes building high-traffic REST APIs, optimizing system performance, and leading feature development across multiple production systems, where I’ve contributed to impactful projects and collaborated with cross-functional teams in fast-paced environments.

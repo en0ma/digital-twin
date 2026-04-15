@@ -90,3 +90,10 @@ Thumbs.db
 /backend/.env
 /terraform/.env
 /frontend/.env  
+/frontend/.env.production
+/frontend/.vercel/
+/frontend/build/
+/frontend/next-env.d.ts
+/frontend/out/
+/frontend/.next/
+/frontend/node_modules/

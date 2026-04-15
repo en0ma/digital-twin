@@ -10,6 +10,7 @@ from datetime import datetime
 import boto3
 from botocore.exceptions import ClientError
 from context import prompt
+from openai import OpenAI
 
 # Load environment variables
 load_dotenv()
@@ -25,6 +26,9 @@ app.add_middleware(
     allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["*"],
 )
+
+# Initialize OpenAI client
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # Initialize Bedrock client - see Q42 on https://edwarddonner.com/faq if the Region gives you problems
 bedrock_client = boto3.client(
@@ -186,8 +190,23 @@ async def chat(request: ChatRequest):
         # Load conversation history
         conversation = load_conversation(session_id)
 
-        # Call Bedrock for response
-        assistant_response = call_bedrock(conversation, request.message)
+        # Build messages for OpenAI
+        messages = [{"role": "system", "content": prompt()}]
+
+        # Add conversation history (keep last 10 messages for context window)
+        for msg in conversation[-10:]:
+            messages.append({"role": msg["role"], "content": msg["content"]})
+
+        # Add current user message
+        messages.append({"role": "user", "content": request.message})
+
+        # Call OpenAI API
+        response = client.chat.completions.create(
+            model="gpt-4o-mini", 
+            messages=messages
+        )
+
+        assistant_response = response.choices[0].message.content
 
         # Update conversation history
         conversation.append(
@@ -206,12 +225,9 @@ async def chat(request: ChatRequest):
 
         return ChatResponse(response=assistant_response, session_id=session_id)
 
-    except HTTPException:
-        raise
     except Exception as e:
         print(f"Error in chat endpoint: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
-
 
 @app.get("/conversation/{session_id}")
 async def get_conversation(session_id: str):
